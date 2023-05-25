@@ -26,7 +26,7 @@ function Body() {
 
     useEffect(() => {
         const fetchCities = async () => {
-            const res = await fetch('http://localhost:3001/api/cities');
+            const res = await fetch('http://pharmacy-liard.vercel.app/api/cities');
             const data = await res.json();
             setCities(data);
         };
@@ -47,7 +47,7 @@ function Body() {
     useEffect(() => {
         if (selectedCity) {
             const fetchZones = async () => {
-                const res = await fetch(`http://localhost:3001/api/zones/city/${selectedCity.value}`);
+                const res = await fetch('http://pharmacy-liard.vercel.app/api/zones/city/');
                 const data = await res.json();
                 setZones(data);
             };
@@ -68,7 +68,7 @@ function Body() {
     const handleSearch = async () => {
         if (selectedCity && selectedZone && selectedGarde) {
             try {
-                const res = await fetch(`http://localhost:3001/api/pharmacies/${selectedGarde.value}/${selectedZone.value}/${selectedCity.value}`);
+                const res = await fetch(`http://pharmacy-liard.vercel.app/api/pharmacies/${selectedGarde.value}/${selectedZone.value}/${selectedCity.value}`);
                 const data = await res.json();
                 setPharmacies(data);
                 const locations = data.map(pharmacy => ({
