@@ -47,7 +47,7 @@ function Body() {
     useEffect(() => {
         if (selectedCity) {
             const fetchZones = async () => {
-                const res = await fetch('http://pharmacy-liard.vercel.app/api/zones/city/');
+                const res = await fetch('http://pharmacy-liard.vercel.app/api/zones/city/${selectedCity}');
                 const data = await res.json();
                 setZones(data);
             };
